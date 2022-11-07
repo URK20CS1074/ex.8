@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.m
+in.js"></script>
+<script>
+    var app=angular.module("myApp",[])
+    app.controller("control",function($scope){
+        $scope.add =function(){
+            $scope.roomRent=$scope.manage*$scope.rent/100;
+            $scope.acc=$scope.manage*$scope.access/100;
+            $scope.emer=$scope.manage*$scope.emg/100;
+            $scope.save=$scope.manage*$scope.sav/100;
+
+    }
+});
+</script>
+</head>
+<body ng-app="myApp" ng-controller="control"><center>
+    <h1 style="background-color: black;color:aliceblue">Buget Calculation App</h1>
+    Enter amount you want to manage:<br><br>
+    <input type="text" width="150px" height="200px" ng-model="manage"><br><br>
+    How would you like to divide your money?<br></center><br><br>
+    Room Rent(%):<input type="text" width="150px" height="200px" ng-model="rent">
+    Accessories(%):<input type="text" width="150px" height="200px" ng-model="access">
+    Emergency(%):<input type="text" width="150px" height="200px" ng-model="emg">
+    Savings(%):<input type="text" width="150px" height="200px" ng-model="sav"><br><br>
+   <center><input type="button" value="Evaluate my money" style="background-color:darkblue;color: aliceblue;" ng-click="add()"></center>  
+   <table>
+    <tr>
+ <td>
+   <span ng-bind="roomRent" value="RoomRent" style="background-color: blue; color:aliceblue;width: 200px;height: 100px;">RoomRent</span>
+   <span ng-bind="acc" style="background-color: green; color:aliceblue;width: 100px;height: 50px;">Accessories</span>
+   <span ng-bind="emer" style="background-color: blue; color:aliceblue;width: 100px;height: 50px;">Emergency</span>
+   <span ng-bind="save" style="background-color:pink; color:aliceblue;width: 100px;height: 50px;">Savings</span></td></tr></table>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script
+src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.m
+in.js"></script>
+<script>
+var app=angular.module("myApp",[]); //module
+app.controller("control",function($scope){
+$scope.items=[];
+$scope.price=[]; //array
+$scope.addItem = function(){
+$scope.items.push($scope.itemname);
+$scope.price.push($scope.itemprice);
+};
+$scope.remove=function($index){
+$scope.items.splice($index,1);
+$scope.price.splice($index,1);
+}
+});
+</script>
+</head>
+<body ng-app="myApp" ng-controller="control">
+Enter Item Name: <input type="text" ng-model="itemname"><br><br>
+Enter product Price: <input type="text" ng-model="itemprice"><br><br>
+<button ng-click="addItem()">Add Item</button>
+
+<table border="1" cellspacing="0" width="50%" style="text-align:center;">
+
+<tr>
+<th>Sl.No</th><th>ItemName</th><th>Price</th><th>Remove</th>
+</tr>
+<tr ng-repeat="z in items, y in price">
+<td>{{$index+1}}</td>
+<td>{{z}}</td>
+<td>{{y}}</td>
+<td>
+<button ng-click="remove($index)">Remove</button>
+</td>
+</tr>
+</table>
+</body>
+</html>
